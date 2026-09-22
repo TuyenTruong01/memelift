@@ -1,5 +1,5 @@
 {
-  "name": "arcmeme-web",
+  "name": "memelift-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,6 @@
     "wagmi": "2.16.9"
   },
   "devDependencies": {
-    "@next/swc-win32-x64-msvc": "15.5.25",
     "@types/node": "^22.15.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
