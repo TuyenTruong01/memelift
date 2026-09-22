@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ARC_EXPLORER } from "@/lib/arc";
 import WalletButton from "./WalletButton";
 
 export default function Header() {
@@ -17,7 +18,7 @@ export default function Header() {
         <span>MemeLift</span>
       </Link>
       <nav className="main-nav" aria-label="Primary navigation">
-        <Link href="/">Explore</Link>
+        <a href={ARC_EXPLORER} target="_blank" rel="noreferrer">Explore</a>
         <Link href="/create">Create</Link>
       </nav>
       <div className="header-actions">
