@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import WalletButton from "./WalletButton";
-import { arcNetwork } from "@/lib/arc";
 
 export default function Header() {
   return (
@@ -9,7 +8,7 @@ export default function Header() {
       <Link href="/" className="brand">
         <Image
           className="brand-logo"
-          src="/images/arcmeme-logo.png"
+          src="/images/memelift-logo.png"
           alt="MemeLift"
           width={36}
           height={36}
@@ -17,12 +16,14 @@ export default function Header() {
         />
         <span>MemeLift</span>
       </Link>
-      <nav>
+      <nav className="main-nav" aria-label="Primary navigation">
         <Link href="/">Explore</Link>
         <Link href="/create">Create</Link>
-        <span className="network-badge">{arcNetwork.name}</span>
-        <WalletButton />
       </nav>
+      <div className="header-actions">
+        <span className="network-badge">Arc Mainnet</span>
+        <WalletButton />
+      </div>
     </header>
   );
 }
