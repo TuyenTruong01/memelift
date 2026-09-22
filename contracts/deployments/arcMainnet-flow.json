@@ -1,0 +1,32 @@
+{
+  "runAt": "2026-09-21T16:46:59.781Z",
+  "chainId": "5042",
+  "factory": "0xa32AB0188823d25972F27f7c4D9254ae626a0AB7",
+  "creator": "0x6bCA39aA6754537Cf7711a8d3DD698530F9458C5",
+  "protocolTreasury": "0x8e23Ca66E4E4d68c6C52Ed651d8487320B3d57d2",
+  "launch": "0xE93596a1d61624eCD5b71581B3b1704026448aa3",
+  "token": "0x53A3042F602a1383934DCd77854d8becA8a7Aceb",
+  "transactions": {
+    "create": "0x53de19f36d5153fcb4fe34a095c6926550e789546d240112f9c83b07deac719e",
+    "buy": "0x61717273fc28372fbeb8dbcb2e6825f50a9df40928162ec4a0bea479819e8c0f",
+    "sell": "0xed3fea7e43dceac89d7b50b6995fb068a38ac131451ab25e3bc58819aa70d630",
+    "protocolClaim": "0x7d30c2a2c07a3a3936e46b3a7f233b3d9d48c9658c8ce7093c6f7cc887e30f32"
+  },
+  "auditedAt": "2026-09-21T16:58:08.268Z",
+  "trade": {
+    "buyer": "0x8e23Ca66E4E4d68c6C52Ed651d8487320B3d57d2",
+    "tokenReceivedFromBuy": "493506331248945832994958",
+    "tokenSold": "250000000000000000000000",
+    "treasuryTokenBalance": "243506331248945832994958",
+    "protocolFeesClaimed": "7126"
+  },
+  "accounting": {
+    "realUsdcReserve": "243566",
+    "creatorFeesAccrued": "2250",
+    "protocolFeesAccrued": "0",
+    "contractUsdcBalance": "245816",
+    "expectedBalance": "245816",
+    "spotPriceE18": "1000487190965",
+    "invariantHolds": true
+  }
+}

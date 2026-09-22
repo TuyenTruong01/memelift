@@ -1,0 +1,35 @@
+node_modules/
+.next/
+artifacts/
+cache/
+coverage/
+.env
+.env.local
+contracts/deployments/*.local.json
+.DS_Store
+*.log
+
+node_modules/
+.next/
+artifacts/
+cache/
+coverage/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local deployment files
+contracts/deployments/*.local.json
+
+# Build/cache
+*.tsbuildinfo
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel local config
+.vercel/

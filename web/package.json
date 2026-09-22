@@ -1,0 +1,25 @@
+{
+  "name": "arcmeme-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.85.3",
+    "next": "15.5.25",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "viem": "2.56.8",
+    "wagmi": "2.16.9"
+  },
+  "devDependencies": {
+    "@next/swc-win32-x64-msvc": "15.5.25",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "typescript": "^5.8.3"
+  }
+}

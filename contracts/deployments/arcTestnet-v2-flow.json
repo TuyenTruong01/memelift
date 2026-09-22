@@ -1,0 +1,39 @@
+{
+  "runAt": "2026-09-21T16:05:09.117Z",
+  "chainId": "5042002",
+  "factory": "0xe5b25f468c3006b6Aff1a3a2fB405Dfda6d31f84",
+  "creator": "0x6bCA39aA6754537Cf7711a8d3DD698530F9458C5",
+  "protocolTreasury": "0x5C73D6297A7447D3412a1B1f9b5B3d9746DfBD81",
+  "launch": "0x323567144b75b88c41F33924D59015061273d28C",
+  "token": "0x539A08F55174A164f9dB11994D1269ac4fCEA1b7",
+  "grossBuyUsdc": "5000000",
+  "tokenBought": "4913240873188631133776976",
+  "tokenSold": "2456620436594315566888488",
+  "transactions": {
+    "create": "0x963364ef37c9c4d187112e4e9ba849ab0f724bbc729ab150e57cdb622520c776",
+    "approveUsdc": "0x14560e6110da7196bb1df7b541c41a8f1ffe235f4d2cee4886f7e929eda9db02",
+    "buy": "0x8be3685ba78c78803177f3858bf63ae1f9d86313753324386997e93ffd0eeb75",
+    "approveToken": "0x60c96115391d93decd6888cd0c268613726346b803efcc64ebc40e8376abc9b5",
+    "sell": "0xe87d526a2cc59e87ddb914b0551f53ee7f9a7a1f0af6611f2ff4c0654d117a44",
+    "creatorClaim": "0x5d11d714e3f0c2dafd0abda10208440d46fd5e909dd5ff2ef492421ad8a4fb7c",
+    "protocolClaim": null
+  },
+  "beforeClaims": {
+    "realUsdcReserve": "2462671",
+    "creatorFeesAccrued": "22424",
+    "protocolFeesAccrued": "71010",
+    "contractUsdcBalance": "2556105",
+    "expectedBalance": "2556105",
+    "invariantHolds": true
+  },
+  "afterCreatorClaim": {
+    "realUsdcReserve": "2462671",
+    "creatorFeesAccrued": "0",
+    "protocolFeesAccrued": "71010",
+    "contractUsdcBalance": "2533681",
+    "expectedBalance": "2533681",
+    "invariantHolds": true
+  },
+  "afterProtocolClaim": null,
+  "protocolClaimRequiresTreasuryWallet": true
+}

@@ -1,0 +1,12 @@
+{
+  "name": "arcmeme-fairlaunch",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["contracts", "web"],
+  "scripts": {
+    "test:contracts": "npm --workspace contracts test",
+    "compile:contracts": "npm --workspace contracts run compile",
+    "dev": "npm --workspace web run dev",
+    "build": "npm --workspace web run build"
+  }
+}

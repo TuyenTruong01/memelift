@@ -1,0 +1,13 @@
+{
+  "deployedAt": "2026-09-21T16:45:18.282Z",
+  "network": "arcMainnet",
+  "version": "V2",
+  "chainId": "5042",
+  "deployer": "0x6bCA39aA6754537Cf7711a8d3DD698530F9458C5",
+  "usdc": "0x3600000000000000000000000000000000000000",
+  "protocolTreasury": "0x8e23Ca66E4E4d68c6C52Ed651d8487320B3d57d2",
+  "virtualUsdc": "1000",
+  "factory": "0xa32AB0188823d25972F27f7c4D9254ae626a0AB7",
+  "deploymentTransaction": "0xd03acf45e6e14e0ee086b299626b3d017660411a4118e83860440f926ae0e7f8",
+  "blockNumber": 22037742
+}
