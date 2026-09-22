@@ -1,4 +1,4 @@
-# MemeLift V2 — USDC Fair Launches on Arc
+# MemeLift — USDC Fair Launches on Arc
 
 MemeLift is a permissionless fixed-supply meme-token launch platform running on **Arc Mainnet**.
 
@@ -6,7 +6,7 @@ A creator chooses a name, symbol, fixed supply, and optional image. The complete
 
 ## Live app
 
-Vercel URL: **Coming soon**
+[https://memelift-murex.vercel.app](https://memelift-murex.vercel.app/)
 
 ## Mainnet deployment
 
@@ -18,11 +18,11 @@ Vercel URL: **Coming soon**
 | Explorer | `https://explorer.arc.io` |
 | USDC ERC-20 | `0x3600000000000000000000000000000000000000` |
 | USDC ERC-20 decimals | `6` |
-| MemeLift Factory V2 | `0xa32AB0188823d25972F27f7c4D9254ae626a0AB7` |
+| MemeLift Factory | `0xa32AB0188823d25972F27f7c4D9254ae626a0AB7` |
 
-[View MemeLift Factory V2 on Arc Explorer](https://explorer.arc.io/address/0xa32AB0188823d25972F27f7c4D9254ae626a0AB7)
+[View MemeLift Factory on Arc Explorer](https://explorer.arc.io/address/0xa32AB0188823d25972F27f7c4D9254ae626a0AB7)
 
-The deployed V2 flow has been smoke-tested on Arc Mainnet with real transactions covering:
+The deployed MemeLift flow has been smoke-tested on Arc Mainnet with real transactions covering:
 
 - Create a fixed-supply meme token.
 - Buy with a small amount of USDC.
@@ -47,7 +47,7 @@ See [`DEPLOYMENT_MAINNET.md`](DEPLOYMENT_MAINNET.md) for deployment and smoke-te
 
 ## Trading fees
 
-MemeLift V2 applies the same total fee to buys and sells:
+MemeLift applies the same total fee to buys and sells:
 
 | Recipient | Fee |
 |---|---:|
@@ -149,7 +149,6 @@ Open `http://localhost:3000`.
 The production frontend uses:
 
 ```text
-NEXT_PUBLIC_ARC_NETWORK=mainnet
 NEXT_PUBLIC_MAINNET_FACTORY_ADDRESS=0xa32AB0188823d25972F27f7c4D9254ae626a0AB7
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_project_id
 ```
