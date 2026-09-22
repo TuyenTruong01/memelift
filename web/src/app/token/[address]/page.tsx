@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import { useParams } from "next/navigation";
 import {
   erc20Abi,
@@ -64,6 +64,7 @@ export default function TokenPage() {
   const [error, setError] = useState("");
   const [mode, setMode] = useState<TradeMode>("buy");
   const [amount, setAmount] = useState("");
+  const [tradePercent, setTradePercent] = useState(0);
   const [quote, setQuote] = useState<TradeQuote | null>(null);
   const [busy, setBusy] = useState(false);
   const [txHash, setTxHash] = useState<Hex | "">("");
@@ -162,9 +163,30 @@ export default function TokenPage() {
 
   const image = useMemo(() => ipfsToHttp(data?.metadataURI || ""), [data?.metadataURI]);
 
-  function setMax() {
+  function selectPercentage(percent: number) {
     if (!data) return;
-    setAmount(formatUnits(mode === "buy" ? data.usdcBalance : data.tokenBalance, mode === "buy" ? 6 : 18));
+    const balance = mode === "buy" ? data.usdcBalance : data.tokenBalance;
+    const decimals = mode === "buy" ? 6 : 18;
+    const rawAmount = (balance * BigInt(percent)) / 100n;
+    setTradePercent(percent);
+    setAmount(rawAmount > 0n ? formatUnits(rawAmount, decimals) : "");
+  }
+
+  function handleAmountChange(value: string) {
+    setAmount(value);
+    if (!data || !value) {
+      setTradePercent(0);
+      return;
+    }
+
+    try {
+      const balance = mode === "buy" ? data.usdcBalance : data.tokenBalance;
+      const rawAmount = parseUnits(value, mode === "buy" ? 6 : 18);
+      const percent = balance > 0n ? Number((rawAmount * 100n) / balance) : 0;
+      setTradePercent(Math.max(0, Math.min(100, percent)));
+    } catch {
+      setTradePercent(0);
+    }
   }
 
   async function executeTrade() {
@@ -244,6 +266,7 @@ export default function TokenPage() {
       setTxHash(hash);
       await publicClient.waitForTransactionReceipt({ hash });
       setAmount("");
+      setTradePercent(0);
       setQuote(null);
       await refresh();
     } catch (e) {
@@ -367,20 +390,48 @@ export default function TokenPage() {
 
       <aside className="token-panel trade-panel">
         <div className="trade-tabs">
-          <button className={mode === "buy" ? "active" : ""} onClick={() => { setMode("buy"); setAmount(""); setQuote(null); }}>Buy</button>
-          <button className={mode === "sell" ? "active" : ""} onClick={() => { setMode("sell"); setAmount(""); setQuote(null); }}>Sell</button>
+          <button className={mode === "buy" ? "active" : ""} onClick={() => { setMode("buy"); setAmount(""); setTradePercent(0); setQuote(null); }}>Buy</button>
+          <button className={mode === "sell" ? "active" : ""} onClick={() => { setMode("sell"); setAmount(""); setTradePercent(0); setQuote(null); }}>Sell</button>
         </div>
 
         <div className="trade-input">
           <label>
             <span>{mode === "buy" ? "You pay" : "You sell"}</span>
-            <button onClick={setMax} style={{ border: 0, background: "none", color: "inherit", padding: 0 }}>
+            <button onClick={() => selectPercentage(100)} style={{ border: 0, background: "none", color: "inherit", padding: 0 }}>
               Balance {compactNumber(mode === "buy" ? data.usdcBalance : data.tokenBalance, mode === "buy" ? 6 : 18, 4)}
             </button>
           </label>
           <div className="row">
-            <input inputMode="decimal" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="0.0" />
+            <input inputMode="decimal" value={amount} onChange={(e) => handleAmountChange(e.target.value)} placeholder="0.0" />
             <strong>{mode === "buy" ? "USDC" : data.symbol}</strong>
+          </div>
+        </div>
+
+        <div className="trade-percentage">
+          <div className="trade-percent-buttons">
+            {[10, 25, 75, 100].map((percent) => (
+              <button
+                type="button"
+                className={tradePercent === percent ? "active" : ""}
+                key={percent}
+                onClick={() => selectPercentage(percent)}
+              >
+                {percent}%
+              </button>
+            ))}
+          </div>
+          <div className="trade-slider-row">
+            <input
+              aria-label={`${mode === "buy" ? "Buy" : "Sell"} percentage`}
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value={tradePercent}
+              onChange={(event) => selectPercentage(Number(event.target.value))}
+              style={{ "--trade-percent": `${tradePercent}%` } as CSSProperties}
+            />
+            <strong>{tradePercent}%</strong>
           </div>
         </div>
 
